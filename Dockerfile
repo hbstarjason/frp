@@ -3,7 +3,7 @@ FROM alpine:3.8
  
 MAINTAINER hbstarjason <hbstarjason@gmail.com>
 
-ENV Frp_ver 0.21.0
+ENV Frp_ver 0.22.0
 
 # https://github.com/fatedier/frp/releases
 
@@ -17,5 +17,7 @@ RUN wget --no-check-certificate https://github.com/fatedier/frp/releases/downloa
 COPY frps.ini /var/frp/conf/frps.ini
 
 WORKDIR /var/frp
+
+EXPOSE 80 443  7000 7500
 
 ENTRYPOINT ./frps -c conf/frps.ini
