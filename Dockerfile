@@ -1,5 +1,5 @@
 
-ROM alpine:3.8
+FROM alpine:3.8
  
 MAINTAINER hbstarjason <hbstarjason@gmail.com>
 
@@ -17,6 +17,5 @@ RUN wget --no-check-certificate https://github.com/fatedier/frp/releases/downloa
 COPY frps.ini /var/frp/conf/frps.ini
 
 WORKDIR /var/frp
-
 
 ENTRYPOINT ./frps -c conf/frps.ini
