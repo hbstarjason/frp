@@ -1,4 +1,3 @@
-
 FROM alpine:3.8
  
 MAINTAINER hbstarjason <hbstarjason@gmail.com>
@@ -6,7 +5,6 @@ MAINTAINER hbstarjason <hbstarjason@gmail.com>
 ENV Frp_ver 0.22.0
 
 # https://github.com/fatedier/frp/releases
-
 RUN wget --no-check-certificate https://github.com/fatedier/frp/releases/download/v${Frp_ver}/frp_${Frp_ver}_linux_amd64.tar.gz && \
     tar -zxf frp_${Frp_ver}_linux_amd64.tar.gz && \
     mkdir /var/frp && \
@@ -16,8 +14,7 @@ RUN wget --no-check-certificate https://github.com/fatedier/frp/releases/downloa
     
 COPY frps.ini /var/frp/conf/frps.ini
 
+EXPOSE 80 443 6000 7000 7500
+
 WORKDIR /var/frp
-
-EXPOSE 80 443  7000 7500
-
 ENTRYPOINT ./frps -c conf/frps.ini
